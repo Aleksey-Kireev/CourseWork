@@ -78,7 +78,7 @@ public class mainMidle {
     private static int summSalaryInDepart(int num) {
         int summ = 0;
         for (Employee emp : EMPLOYEES) {
-            if (emp.getDepartment() == num){
+            if (emp.getDepartment() == num) {
                 summ += emp.getSalary();
             }
         }
@@ -138,13 +138,11 @@ public class mainMidle {
         int summSalaryInDepart = summSalaryInDepart(depart);
         System.out.printf("%nСумма затрат на ЗП по отделу № %d : - %s", depart, summSalaryInDepart);
         System.out.printf("%nСредняя сумма затрат на ЗП по отделу № %d : - %s", depart, averageSalaryInDepart(depart,
-         summSalaryInDepart));
+                summSalaryInDepart));
         System.out.printf("%nЗП отдела № %d проиндексирована на %d %%%n", depart, ind);
         indexInDepart(ind, depart);
         System.out.printf("%nСотрудники отдела №%d %n", depart);
         printDepart(depart);
-
-
 
 
     }
