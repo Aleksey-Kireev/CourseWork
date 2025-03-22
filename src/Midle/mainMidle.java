@@ -119,6 +119,31 @@ public class mainMidle {
     }
 
 
+//      -------- Метод поиска и печати сотрудников с зп меньше числа по отделу--------
+
+    private static void salaryLessNum(int num, int depart) {
+        System.out.println("Все сотрудники с ЗП меньше - " + num);
+        for (Employee emp : EMPLOYEES) {
+            if (emp.getDepartment() == depart & emp.getSalary() < num) {
+                System.out.println("ID - " + emp.getId() + " " + emp.getFullName() + ". ЗП - " + emp.getSalary() + " " +
+                        "рублей.");
+            }
+        }
+    }
+
+
+//      -------- Метод поиска и печати сотрудников с зп больше или равного числу по отделу--------
+
+    private static void salaryMoreNum(int num, int depart) {
+        System.out.println("Все сотрудники с ЗП больше или равной - " + num);
+        for (Employee emp : EMPLOYEES) {
+            if (emp.getDepartment() == depart & emp.getSalary() >= num) {
+                System.out.println("ID - " + emp.getId() + " " + emp.getFullName() + ". ЗП - " + emp.getSalary() + " " +
+                        "рублей.");
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
         initFullName();
@@ -143,6 +168,16 @@ public class mainMidle {
         indexInDepart(ind, depart);
         System.out.printf("%nСотрудники отдела №%d %n", depart);
         printDepart(depart);
+
+        Employee maxWorkerSalary = findMaxSalaryInDepart(depart);
+        int maxSalary = maxWorkerSalary.getSalary();
+        System.out.printf("\nВведите границу ЗП (от 0 до %d) : ", maxSalary);
+
+        int num = inNum.nextInt();         //  Ввод пограничной ЗП
+
+        salaryLessNum(num, depart);
+
+        salaryMoreNum(num, depart);
 
 
     }

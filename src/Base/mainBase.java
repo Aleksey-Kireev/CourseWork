@@ -92,7 +92,9 @@ public class mainBase {
         System.out.printf("%nСотрудник с максимальной зарплатой - %s", findMaxSalary());
 
         System.out.printf("%nСредняя зарплата - %.2f рублей.", averageSalary());
+        System.out.println();
 
+//        ФИО всех сотрудников
         printFullName();
 
 
