@@ -13,7 +13,8 @@ public class mainBase {
     private final static String[] SOUR_NAME = {"Васильевич", "Иванович", "Георгиевич", "Константинович", "Михайлович"
             , "Сергеевич", "Алексеевич"};
 
-    //     ----------- Создаем массив объектов  -----------
+//     ----------- Создаем массив объектов  -----------
+
     private final static Employee[] EMPLOYEES = new Employee[10];
 
 //    ----------- Метод генерации ФИО и создания объекта сотрудник -----------
@@ -92,7 +93,9 @@ public class mainBase {
         System.out.printf("%nСотрудник с максимальной зарплатой - %s", findMaxSalary());
 
         System.out.printf("%nСредняя зарплата - %.2f рублей.", averageSalary());
+        System.out.println();
 
+//        ФИО всех сотрудников
         printFullName();
 
 

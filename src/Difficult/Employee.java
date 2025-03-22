@@ -1,4 +1,4 @@
-package Midle;
+package Difficult;
 
 import java.util.Objects;
 
@@ -61,5 +61,3 @@ public class Employee {
         return Objects.hash(fullName, department, salary, id);
     }
 }
-
-
