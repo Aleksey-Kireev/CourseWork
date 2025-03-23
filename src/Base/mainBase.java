@@ -4,8 +4,6 @@ import java.util.Random;
 
 public class mainBase {
 
-//   ----------- Массив данных для создания ФИО сотрудников -----------
-
     private final static Random RANDOM = new Random();
     private final static String[] FIRST_NAME = {"Иванов", "Петров", "Сидоров", "Суворов", "Жуков", "Невский",
             "Рокосовский"};
@@ -13,11 +11,8 @@ public class mainBase {
     private final static String[] SOUR_NAME = {"Васильевич", "Иванович", "Георгиевич", "Константинович", "Михайлович"
             , "Сергеевич", "Алексеевич"};
 
-//     ----------- Создаем массив объектов  -----------
-
     private final static Employee[] EMPLOYEES = new Employee[10];
 
-//    ----------- Метод генерации ФИО и создания объекта сотрудник -----------
 
     public static void initFullName() {
         for (int i = 0; i < EMPLOYEES.length; i++) {
@@ -28,15 +23,12 @@ public class mainBase {
         }
     }
 
-//   ----------- Метод для печати всех данных по сотруднику -----------
-
     private static void printAll() {
         for (Employee employee : EMPLOYEES) {
             System.out.println(employee);
         }
     }
 
-    //     ----------- Метод для подсчета суммы по всем сотрудникам -----------
     private static int summSalary() {
         int summ = 0;
         for (Employee employee : EMPLOYEES) {
@@ -46,7 +38,6 @@ public class mainBase {
         return summ;
     }
 
-    //   ----------- Поиск сотрудника с минимальной ЗП -----------
     private static Employee findMinSalary() {
         Employee employeeWithMin = null;
         for (Employee employee : EMPLOYEES) {
@@ -57,7 +48,6 @@ public class mainBase {
         return employeeWithMin;
     }
 
-    //   ----------- Поиск сотрудника с максимальной ЗП -----------
     private static Employee findMaxSalary() {
         Employee employeeWithMax = null;
         for (Employee employee : EMPLOYEES) {
@@ -68,12 +58,10 @@ public class mainBase {
         return employeeWithMax;
     }
 
-    //    ----------- Метод средней ЗП
     private static float averageSalary() {
         return (float) summSalary() / EMPLOYEES.length;
     }
 
-    //    Метод печати только ФИО
     private static void printFullName() {
         for (Employee employee : EMPLOYEES) {
             System.out.println(employee.getFullName());
@@ -81,11 +69,10 @@ public class mainBase {
 
     }
 
-
     public static void main(String[] args) {
 
-        initFullName();         // Вызываем метод генерации ФИО
-        printAll();             // Печатаем всё
+        initFullName();
+        printAll();
 
         System.out.printf("%nЗарплата всех сотрудников = %d рублей.", summSalary());
         System.out.printf("%nСотрудник с минимальной зарплатой - %s", findMinSalary());
@@ -94,11 +81,8 @@ public class mainBase {
         System.out.printf("%nСредняя зарплата - %.2f рублей.", averageSalary());
         System.out.println();
 
-//        ФИО всех сотрудников
         printFullName();
 
-
     }
-
 
 }

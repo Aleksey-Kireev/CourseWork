@@ -5,8 +5,6 @@ import java.util.Scanner;
 
 public class EmployeeBook {
 
-//   ----------- Массив данных для создания ФИО сотрудников -----------
-
     private final static Random RANDOM = new Random();
     private final static String[] FIRST_NAME = {"Иванов", "Петров", "Сидоров", "Суворов", "Жуков", "Невский",
             "Рокосовский"};
@@ -14,7 +12,6 @@ public class EmployeeBook {
     private final static String[] SOUR_NAME = {"Васильевич", "Иванович", "Георгиевич", "Константинович", "Михайлович"
             , "Сергеевич", "Алексеевич"};
 
-    //     ----------- Создаем массив объектов  -----------
     private final Employee[] EMPLOYEES = new Employee[10];
 
     private void initFullName() {
@@ -26,28 +23,20 @@ public class EmployeeBook {
         }
     }
 
-//   ----------- Метод для печати всех данных по сотруднику -----------
-
     private void printAll() {
         for (Employee employee : EMPLOYEES) {
             System.out.println(employee);
         }
     }
 
-//      -------- Метод индексации ЗП --------
-
     private void index(int ind) {
         for (Employee emp : EMPLOYEES) {
-            // System.out.println(emp);
             float sal = (emp.getSalary() * (1 + (float) ind / 100));
-            //System.out.println(sal);
             emp.setSalary((int) sal);
             System.out.println(emp);
 
         }
     }
-
-//      ------- Метод поиска сотрудника с мин ЗП --------
 
     private Employee findMinSalaryInDepart(int num) {
         Employee employeeWithMin = null;
@@ -59,8 +48,6 @@ public class EmployeeBook {
         return employeeWithMin;
     }
 
-//      ------- Метод поиска сотрудника с мин ЗП --------
-
     private Employee findMaxSalaryInDepart(int num) {
         Employee employeeWithMax = null;
         for (Employee emp : EMPLOYEES) {
@@ -70,8 +57,6 @@ public class EmployeeBook {
         }
         return employeeWithMax;
     }
-
-//      ------- Метод поиска суммы затрат на ЗП по отделу --------
 
     private int summSalaryInDepart(int num) {
         int summ = 0;
@@ -83,18 +68,15 @@ public class EmployeeBook {
         return summ;
     }
 
-
-//    ----------- Метод средней ЗП по отделу ------------
-
     private float averageSalaryInDepart(int num, int summSalaryInDepart) {
         int i = 0;
         for (Employee emp : EMPLOYEES) {
-            if (emp.getDepartment() == num) i += 1;
+            if (emp.getDepartment() == num) {
+                i += 1;
+            }
         }
         return (float) summSalaryInDepart / i;
     }
-
-    //   ----------- Метод для печати данных по отделу -----------
 
     private void printDepart(int depart) {
         for (Employee emp : EMPLOYEES) {
@@ -103,8 +85,6 @@ public class EmployeeBook {
             }
         }
     }
-
-//      -------- Метод индексации ЗП по отделу--------
 
     private void indexInDepart(int ind, int depart) {
         for (Employee emp : EMPLOYEES) {
@@ -116,14 +96,12 @@ public class EmployeeBook {
         }
     }
 
-//      -------- Метод поиска и печати сотрудников с зп меньше числа по отделу--------
-
     private void salaryLessNum(int num, int depart) {
         System.out.println("Все сотрудники с ЗП меньше - " + num);
         for (Employee emp : EMPLOYEES) {
             if (emp.getDepartment() == depart && emp.getSalary() < num) {
                 System.out.println("ID - " + emp.getId() + " " + emp.getFullName() + ". ЗП - " + emp.getSalary() + " " +
-                        "рублей.");
+                                           "рублей.");
             }
         }
     }
@@ -141,7 +119,7 @@ public class EmployeeBook {
         for (Employee emp : EMPLOYEES) {
             if (emp.getDepartment() == depart && emp.getSalary() >= num) {
                 System.out.println("ID - " + emp.getId() + " " + emp.getFullName() + ". ЗП - " + emp.getSalary() + " " +
-                        "рублей.");
+                                           "рублей.");
             }
         }
     }
@@ -150,7 +128,7 @@ public class EmployeeBook {
      * ---- Метод добавления сотрудника, с поиском свободной ячейки
      *
      * @param newEmp - новый сотрудник передаваемый в метод
-     * @return возращает истину если мето есть и ложь если мееста нет
+     * @return возвращает истину если место есть и ложь если места нет
      */
     private boolean addEmployee(Employee newEmp) {
         for (int i = 0; i < EMPLOYEES.length; i++) {
@@ -179,6 +157,7 @@ public class EmployeeBook {
 
     /**
      * Получение сотрудника по ID
+     *
      * @param id - параметр для поиска
      * @return возвращает найденый объект.
      */
@@ -197,9 +176,7 @@ public class EmployeeBook {
 
         printAll();
 
-        Scanner inNum = new Scanner(System.in);         //  Инициализируем сканер
-
-//    ------------ Ввод числа для индексации
+        Scanner inNum = new Scanner(System.in);
 
         System.out.print("\nВведите % для индексации ЗП (от 1 до 100) : ");
         int ind = inNum.nextInt();
@@ -207,7 +184,6 @@ public class EmployeeBook {
         System.out.println("\nЗарплата сотрудников после индексации :");
         index(ind);
 
-        //     -------    Ввод № отдела
         System.out.print("\nВведите № отдела (от 1 до 5) : ");
         int depart = inNum.nextInt();
 
@@ -226,13 +202,12 @@ public class EmployeeBook {
         int maxSalary = maxWorkerSalary.getSalary();
         System.out.printf("\nВведите границу ЗП (от 0 до %d) : ", maxSalary);
 
-        int num = inNum.nextInt();                      //  Ввод пограничной ЗП
+        int num = inNum.nextInt();
 
         salaryLessNum(num, depart);
 
         salaryMoreNum(num, depart);
 
-//        Цикл для удаления нескольких сотрудников
         for (int i = 0; i < 2; i++) {
 
             System.out.printf("\nВведите ID сотрудника для удаления (от 0 до %d) : ", EMPLOYEES.length);
@@ -241,8 +216,6 @@ public class EmployeeBook {
 
         }
 
-//        Для проверки выводим весь массив и добавляем нового сгенерированного сотрудника
-
         printAll();
         System.out.println();
 
@@ -250,7 +223,7 @@ public class EmployeeBook {
                 LAST_NAME.length)] + " " + SOUR_NAME[RANDOM.nextInt(0, SOUR_NAME.length)];
         Employee newEmp = new Employee(fullName, RANDOM.nextInt(1, 6), RANDOM.nextInt(50000, 120000));
         String free = addEmployee(newEmp) ? "Свободная ячейка найдена, сотрудник добавлен." : "Свободных ячеек нет, " +
-                "сотрудник не добавлен.";
+                                                                                                      "сотрудник не добавлен.";
         System.out.println(free);
         System.out.println();
         printAll();
