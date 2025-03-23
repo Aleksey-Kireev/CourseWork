@@ -5,7 +5,6 @@ import java.util.Objects;
 public class Employee {
 
     private static int idWorker = 1;
-
     private final String fullName;
     private int department;
     private int salary;
@@ -16,7 +15,6 @@ public class Employee {
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
-
     }
 
     public void setDepartment(int department) {

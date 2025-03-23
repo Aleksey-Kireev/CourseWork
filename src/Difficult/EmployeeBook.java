@@ -17,7 +17,6 @@ public class EmployeeBook {
     //     ----------- Создаем массив объектов  -----------
     private final Employee[] EMPLOYEES = new Employee[10];
 
-
     private void initFullName() {
         for (int i = 0; i < EMPLOYEES.length; i++) {
             String fullName = FIRST_NAME[RANDOM.nextInt(0, FIRST_NAME.length)] + " " + LAST_NAME[RANDOM.nextInt(0,

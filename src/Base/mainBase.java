@@ -26,7 +26,6 @@ public class mainBase {
             EMPLOYEES[i] = new Employee(fullName, RANDOM.nextInt(1, 6), RANDOM.nextInt(50000, 120000));
 
         }
-
     }
 
 //   ----------- Метод для печати всех данных по сотруднику -----------
