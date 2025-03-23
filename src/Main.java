@@ -2,7 +2,6 @@ import Difficult.EmployeeBook;
 
 public class Main {
 
-
     public static void main(String[] args) {
 
         System.out.println("------- Курсовая 1 курс --------- \n -=-=-=-= Базовая сложность =-=-=-=-");
